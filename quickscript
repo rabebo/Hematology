@@ -1,0 +1,178 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Thu Apr 29 18:47:57 2021
+
+@author: rabebo
+"""
+#MCV = HCT / RCC
+#MCH = HB / RCC
+#MCHC = HB / HCT
+import sympy as sym
+print ("Please input RBCs");
+RBC = input();
+print ("Please input HB");
+HB = input();
+print ("Please input HCT");
+HCT = input();
+print ("Please input MCV");
+MCV = input();
+print ("Please input MCH");
+MCH = input();
+print ("Please input MCHC");
+MCHC = input();
+
+mylist = []
+if RBC == 0:
+    mylist.append("RBC")
+if HB == 0:
+    mylist.append("HB")
+if HCT == 0:
+    mylist.append("HCT")
+if MCV == 0:
+    mylist.append("MCV")
+if MCH == 0:
+    mylist.append("MCH")
+if MCHC == 0:
+    mylist.append("MCHC")
+def convert(list):
+    return tuple(list)
+  
+# Driver function
+list = mylist
+print(convert(list))
+
+def mis():   #the mis is the missing values that the code should figure out before mal
+    MCV,MCH,MCHC,HCT,RCC,HB = sym.symbols('MCV,MCH,MCHC,HCT,RCC,HB')
+    eq1 = sym.Eq(HCT/RBC, MCV)
+    eq2 = sym.Eq(HB/RBC, MCH)
+    eq3 = sym.Eq(HB/HCT, MCHC)
+    result = sym.solve([eq1, eq2, eq3], (list))
+    print(result)
+mis()
+def mal():
+    if RBC > 6.50:
+        a = ('High')
+    if RBC < 4.50:
+        a = ('low')
+    else:
+        a = ('normal') 
+    if HB > 180:
+        b = ('High')
+    if HB < 130:
+        b = ('low')
+    else:
+        b = ('normal')
+    if HCT > 0.52:
+        c = ('High')
+    if HCT < 0.40:
+        c = ('low')
+    else:
+        c = ('normal')
+    if MCV > 98:
+        d = ('High')
+    if MCV < 79:
+        d = ('low')
+    else:
+        d = ('normal')
+    if MCH > 32:
+        e = ('High')
+    if MCH < 27:
+        e = ('low')
+    else:
+        e = ('normal')
+    if MCHC > 350:
+        f = ('High')
+    if MCHC < 300:
+        f = ('low')
+    else:
+        f = ('normal')
+    print ("Please input RDW");
+    RDW = input();
+    if RDW > 14.5:
+        g = ('High')
+    if RDW < 11.5:
+        g = ('low')
+    else:
+        g = ('normal')
+    print ("Please input PLT");
+    PLT = input();
+    if PLT > 400:
+        h = ('High')
+    if PLT < 150:
+        h = ('low')
+    else:
+        h = ('normal')
+    print ("Please input RETIC");
+    RETIC = input();
+    if RETIC > 2:
+        i = ('High')
+    if RETIC < 0.2:
+        i = ('low')
+    else:
+        i = ('normal')
+    print ("Please input ESR");
+    ESR = input();
+    if ESR > 10:
+        j = ('abnormal')
+    if ESR < 10:
+        j = ('normal')
+    print ("Please input WBC");
+    WBC = input();
+    if WBC > 11:
+        k = ('High')
+    if WBC < 4.0:
+        k = ('low')
+    else:
+        k = ('normal')
+    print ("Please input Neutrophils");
+    N = input();
+    if N > 7.5:
+        l = ('High')
+    if N < 2.0:
+        l = ('low')
+    else:
+        l = ('normal')
+    print ("Please input Lucocytes");
+    L = input();
+    if L > 4.0:
+        m = ('High')
+    if L < 1.0:
+        m = ('low')
+    else:
+        m = ('normal')
+    print ("Please input Monocytes");
+    Mono = input();
+    if Mono > 0.8:
+        n = ('High')
+    if L <= 0.8:
+        n = ('normal')
+    print ("Please input Esonophils");
+    E = input();
+    if E > 0.4:
+        o = ('High')
+    if E <= 0.4:
+        o = ('normal')
+    print ("Please input Basophils");
+    Baso = input();
+    if Baso > 0.1:
+        p = ('High')
+    if Baso <= 0.1:
+        p = ('normal')
+    print ("RBC," + a)
+    print ("HB," + b)
+    print ("HCT," + c)
+    print ("MCV," + d)
+    print ("MCH," + e)
+    print ("MCHC," + f)
+    print ("RDW," + g)
+    print ("PLT," + h)
+    print ("RETIC," + i)
+    print ("ESR," + j)
+    print ("WBC," + k)
+    print ("N," + l)
+    print ("L," + m)
+    print ("Mono," + n)
+    print ("E," + o)
+    print ("Baso," + p)
+mis()
+mal()
