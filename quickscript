@@ -4,6 +4,7 @@ Created on Thu Apr 29 18:47:57 2021
 
 @author: rabebo
 """
+# calculate the missing parameters then procead to compare to refrence interval.
 #MCV = HCT / RCC
 #MCH = HB / RCC
 #MCHC = HB / HCT
